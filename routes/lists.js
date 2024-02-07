@@ -1,35 +1,200 @@
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     List:
+ *       type: object
+ *       required:
+ *         - listCategory
+ *         - listName
+ *         - couple
+ *       properties:
+ *         _id:
+ *           type: string
+ *           description: The auto-generated id of the list
+ *         listCategory:
+ *           type: string
+ *           description: The category of your list
+ *         listName:
+ *           type: string
+ *           description: The list name
+ *         list:
+ *           type: array
+ *           description: The array of the actual list
+ *       example:
+ *         _id: 65c1fff173062bca57d70214
+ *         listCategory: Bathroom
+ *         listName: Bathroom
+ *         list:
+ *           - want: Towels
+ *             isBought: true
+ *           - want: Bath robes
+ *             isBought: false
+ *           - want: Bins for clothes
+ *             isBought: false
+ *           - want: Plastic tubs
+ *             isBought: false
+ *         couple:
+ *           - 65bd076f828f42b463067bbf
+ *           - 65bd075c828f42b463067bbc
+ *     ListFilter:
+ *       type: object
+ *       properties:
+ *         isBought:
+ *           type: boolean
+ *           description: value of isBought
+ *       example:
+ *         isBought: true
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Lists
+ *   description: The lists managing API
+ * /api/list:
+ *   post:
+ *     summary: Create a new list
+ *     tags: [Lists]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/List'
+ *     responses:
+ *       200:
+ *         description: The list was created.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/List'
+ *       500:
+ *         description: Some server error
+ *   get:
+ *     summary: Get all lists
+ *     tags: [Lists]
+ *     responses:
+ *       200:
+ *         description: The list of lists.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                  $ref: '#/components/schemas/List'
+ *       500:
+ *         description: Some server error
+ * /api/list/{id}:
+ *   post:
+ *     summary: Get all lists
+ *     tags: [Lists]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The list id
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/ListFilter'
+ *     responses:
+ *       200:
+ *         description: The list of lists.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                  $ref: '#/components/schemas/List'
+ *       404:
+ *        description: The list was not found
+ *       500:
+ *         description: Some server error
+ *   patch:
+ *     summary: edit one list
+ *     tags: [Lists]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The list id
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/List'
+ *     responses:
+ *       200:
+ *         description: The list was updated.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               items:
+ *                  $ref: '#/components/schemas/List'
+ *       404:
+ *        description: The list was not found
+ *       500:
+ *         description: Some server error
+ *   delete:
+ *     summary: Delete the list by id
+ *     tags: [Lists]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The list id
+ *
+ *     responses:
+ *       200:
+ *         description: The list was deleted
+ *       404:
+ *         description: The list was not found
+ *
+ */
+
 const express = require("express");
 const router = express.Router();
-const isAuth = require('../middlewares/isAuth')
-const { createList, getAllLists, getOneList, updateList, deleteList } = require('../controllers/list.controller')
+const isAuth = require('../middlewares/isAuth');
+const { createList, getAllLists, getOneList, updateList, deleteList } = require('../controllers/list.controller');
 
-//POST
-//list posting
-//PATH: http://localhost:6000/api/list/
-//params Body
+// POST
+// List posting
+// PATH: http://localhost:3000/api/list/
+// Params Body
 router.post("/", isAuth, createList);
 
-//GET
-//getting all lists
-//PATH: http://localhost:6000/api/list/
+// GET
+// Getting all lists
+// PATH: http://localhost:3000/api/list/
 router.get("/", isAuth, getAllLists);
 
-//POST
-//getting list by id
-//PATH:http://localhost:6000/api/list/:id
-//params id
+// POST
+// Getting list by id
+// PATH: http://localhost:3000/api/list/:id
+// Params id
 router.post("/:id", isAuth, getOneList);
 
-//PATCH
-//updating a list by id
-//PATH:http://localhost:6000/api/list/:id
-//params id body
+// PATCH
+// Updating a list by id
+// PATH: http://localhost:3000/api/list/:id
+// Params id body
 router.patch("/:id", isAuth, updateList);
 
-//DELETE
-//deleting a list by id
-//PATH: http://localhost:6000/api/list/:id
-//params id
+// DELETE
+// Deleting a list by id
+// PATH: http://localhost:3000/api/list/:id
+// Params id
 router.delete("/:id", isAuth, deleteList);
 
 module.exports = router;
