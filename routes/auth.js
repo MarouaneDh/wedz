@@ -36,7 +36,7 @@
  *         role: husband
  *         firstName: John
  *         lastName: Doe
- *         password: $2b$10$4Is68W3THLOq3/AavuO7TO/CyjCUh/i1dMfxg2ejxK.cNMzap36we
+ *         password: 12345678Aa*
  *         email: johndoe@gmail.com
  *         phoneNumber: +33123456789
  *         partner: 65bd076f828f42b463067bbf
@@ -59,7 +59,7 @@
  * tags:
  *   name: Auth
  *   description: The authentication managing API
- * /auth/register:
+ * /api/auth/register:
  *   post:
  *     summary: Create a new user
  *     tags: [Auth]
@@ -78,7 +78,7 @@
  *               $ref: '#/components/schemas/Register'
  *       500:
  *         description: Some server error
- * /auth/login:
+ * /api/auth/login:
  *   post:
  *     summary: Login a user
  *     tags: [Auth]
