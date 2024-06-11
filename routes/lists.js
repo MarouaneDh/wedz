@@ -87,7 +87,7 @@
  *         description: Some server error
  * /api/list/{id}:
  *   post:
- *     summary: Get all lists
+ *     summary: Get one list
  *     tags: [Lists]
  *     parameters:
  *       - in: path
