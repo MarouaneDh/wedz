@@ -47,16 +47,14 @@ const getAllLists = async (req, res) => {
 
 const getOneList = async (req, res) => {
     const _id = req.params.id;
-    const filter = req.body; // Filter based on the request body
+    const filter = req.body;
 
     try {
         let result;
 
         if (Object.keys(filter).length === 0) {
-            // If no filter is provided, return the entire list
             result = await List.findOne({ _id }).select("-__v");
         } else {
-            // If a filter is provided, apply the filter to the list
             result = await List.findOne({ _id }).select("-__v");
 
             if (result) {
@@ -64,7 +62,6 @@ const getOneList = async (req, res) => {
             }
         }
 
-        // Calculate the rounded percentage and add the "stat" key
         const totalItems = result.list.length;
         const boughtItems = result.list.filter(item => item.isBought).length;
         const ratio = totalItems > 0 ? (boughtItems / totalItems) : 0;
@@ -80,6 +77,7 @@ const getOneList = async (req, res) => {
         res.status(400).send({ message: "There is no list with this id" });
     }
 };
+
 
 const updateList = async (req, res) => {
     const _id = req.params.id;

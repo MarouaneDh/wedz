@@ -1,33 +1,35 @@
-const express = require('express')
+const express = require('express');
 const dbConnect = require("./config/connectDB");
 require("dotenv").config();
 const cors = require('cors');
-
-const swagger = require('./swagger')
+const swagger = require('./swagger');
 
 const userRouter = require("./routes/users");
 const listRouter = require("./routes/lists");
+const uploadRouter = require("./routes/images");
 const authRouter = require("./routes/auth");
 
-const PORT = process.env.PORT || 3000
-const HOST = process.env.HOST || '0.0.0.0'
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
 
 // connect DB
 dbConnect();
 
-const app = express()
+const app = express();
 
-app.use(express.json())
+app.use(express.json());
 app.use(cors());
 
-swagger(app)
+swagger(app);
 
 app.listen(PORT, HOST, () => {
-    console.log(`listenning on PORT: ${PORT}`)
-})
+    console.log(`listening on PORT: ${PORT}`);
+});
 
-//body parse midware
+// body parser middleware
 app.use(express.json());
+
 app.use("/api/user", userRouter);
 app.use("/api/list", listRouter);
+app.use("/api/upload", uploadRouter);
 app.use("/api/auth", authRouter);
