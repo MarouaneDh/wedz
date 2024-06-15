@@ -22,29 +22,28 @@
  *           type: array
  *           description: The array of the actual list
  *       example:
- *         _id: 65c1fff173062bca57d70214
  *         listCategory: Bathroom
  *         listName: Bathroom
  *         list:
- *           - want: Towels
+ *           - item: Towels
  *             isBought: true
  *             addedBy: 65bd076f828f42b463067bbf
  *             imageURLs:
  *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
  *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
- *           - want: Bath robes
+ *           - item: Bath robes
  *             isBought: false
  *             addedBy: 65bd076f828f42b463067bbf
  *             imageURLs:
  *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
  *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
- *           - want: Bins for clothes
+ *           - item: Bins for clothes
  *             isBought: false
  *             addedBy: 65bd076f828f42b463067bbf
  *             imageURLs:
  *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
  *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
- *           - want: Plastic tubs
+ *           - item: Plastic tubs
  *             isBought: false
  *             addedBy: 65bd076f828f42b463067bbf
  *             imageURLs:
