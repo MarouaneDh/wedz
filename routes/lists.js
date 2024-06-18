@@ -29,26 +29,25 @@
  *             isBought: true
  *             addedBy: 65bd076f828f42b463067bbf
  *             imageURLs:
- *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
- *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
+ *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
+ *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
  *           - item: Bath robes
  *             isBought: false
  *             addedBy: 65bd076f828f42b463067bbf
  *             imageURLs:
- *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
- *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
+ *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
  *           - item: Bins for clothes
  *             isBought: false
  *             addedBy: 65bd076f828f42b463067bbf
  *             imageURLs:
- *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
- *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
+ *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
+ *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
+ *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
  *           - item: Plastic tubs
  *             isBought: false
  *             addedBy: 65bd076f828f42b463067bbf
  *             imageURLs:
- *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
- *               - http://localhost:3000/api/upload/666bf6ccbcaef4c07646ab0a
+ *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
  *         couple:
  *           - 65bd076f828f42b463067bbf
  *           - 65bd075c828f42b463067bbc

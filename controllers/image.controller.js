@@ -15,7 +15,7 @@ const uploadImage = async (req, res) => {
         await image.save();
 
         // Construct the image URL
-        const imageUrl = `/api/upload/${image._id}`;
+        const imageUrl = `https://wedz.adaptable.app/api/upload/${image._id}`;
 
         // Update the specific list item with the image URL
         if (listId && itemId) {
@@ -35,7 +35,7 @@ const uploadImage = async (req, res) => {
     }
 };
 
-const getImage = async (req, res) =>{
+const getImage = async (req, res) => {
     try {
         const image = await Images.findById(req.params.id);
 
