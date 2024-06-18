@@ -119,7 +119,7 @@ const { uploadImage, getImage } = require("../controllers/image.controller");
 //POST
 //uploading image
 //PATH:http://localhost:3000/api/upload
-router.post("/", upload.single('file'), isAuth, uploadImage);
+router.post("/", upload.single('file'), uploadImage);
 
 router.get('/:id', getImage)
 
