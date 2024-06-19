@@ -62,9 +62,15 @@ const getOneList = async (req, res) => {
             }
         }
 
-        const totalItems = result.list.length;
-        const boughtItems = result.list.filter(item => item.isBought).length;
-        const ratio = totalItems > 0 ? (boughtItems / totalItems) : 0;
+        const numberOfItems = 0
+        const numberOfItemsBought = 0
+
+        result.list.map((el) => numberOfItems = numberOfItems + el.numberOfItems)
+        result.list.map((el) => numberOfItemsBought = numberOfItemsBought + el.numberOfItemsBought)
+
+        // const totalItems = result.list.length;
+        // const boughtItems = result.list.filter(item => item.isBought).length;
+        const ratio = numberOfItems > 0 ? (numberOfItemsBought / numberOfItems) : 0;
         const percentage = Math.round(ratio * 100);
 
         const listWithStats = {
