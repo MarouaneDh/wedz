@@ -23,11 +23,21 @@ const getAllLists = async (req, res) => {
             .select("-__v")
             .sort({ createdAt: -1 });
 
+        let globalNumberOfItems = 0
+        let globalNumberOfItemsBought = 0
+
         // Add the "stat" key to each list object as a rounded percentage
         const listsWithStats = result.map((list) => {
-            const totalItems = list.list.length;
-            const boughtItems = list.list.filter(item => item.isBought).length;
-            const ratio = totalItems > 0 ? (boughtItems / totalItems) : 0;
+            let numberOfItems = 0
+            let numberOfItemsBought = 0
+
+            list.list.map((el) => numberOfItems = numberOfItems + el.numberOfItems)
+            list.list.map((el) => numberOfItemsBought = numberOfItemsBought + el.numberOfItemsBought)
+
+            globalNumberOfItems = globalNumberOfItems + numberOfItems
+            globalNumberOfItemsBought = globalNumberOfItemsBought + numberOfItemsBought
+
+            const ratio = numberOfItems > 0 ? (numberOfItemsBought / numberOfItems) : 0;
             const percentage = Math.round(ratio * 100);
 
             return {
@@ -36,11 +46,18 @@ const getAllLists = async (req, res) => {
             };
         });
 
+        const globalRatio = globalNumberOfItems > 0 ? (globalNumberOfItemsBought / globalNumberOfItems) : 0;
+        const globalPercentage = Math.round(globalRatio * 100);
+
         res.send({
-            response: listsWithStats,
+            response: {
+                ...listsWithStats,
+                globalstats: globalPercentage
+            },
             message: "Got all lists with success",
         });
     } catch (error) {
+        console.log(error)
         res.status(400).send({ message: "Can't get lists" });
     }
 };
