@@ -6,7 +6,9 @@ const subListSchema = new mongoose.Schema({
     item: String,
     isBought: Boolean,
     addedBy: String,
-    imageURLs: [String]
+    imageURLs: [String],
+    numberOfItems: Number,
+    numberOfItemsBought: Number,
 });
 
 const listSchema = new schema({

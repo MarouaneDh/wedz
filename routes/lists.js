@@ -22,23 +22,29 @@
  *           type: array
  *           description: The array of the actual list
  *       example:
- *         listCategory: Bathroom
+ *         listCategory: bathroom
  *         listName: Bathroom
  *         list:
  *           - item: Towels
  *             isBought: true
  *             addedBy: 65bd076f828f42b463067bbf
+ *             numberOfItems: 10
+ *             numberOfItemsBought: 6
  *             imageURLs:
  *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
  *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
  *           - item: Bath robes
  *             isBought: false
  *             addedBy: 65bd076f828f42b463067bbf
+ *             numberOfItems: 2
+ *             numberOfItemsBought: 2
  *             imageURLs:
  *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
  *           - item: Bins for clothes
  *             isBought: false
  *             addedBy: 65bd076f828f42b463067bbf
+ *             numberOfItems: 3
+ *             numberOfItemsBought: 2
  *             imageURLs:
  *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
  *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
@@ -46,6 +52,8 @@
  *           - item: Plastic tubs
  *             isBought: false
  *             addedBy: 65bd076f828f42b463067bbf
+ *             numberOfItems: 2
+ *             numberOfItemsBought: 2
  *             imageURLs:
  *               - https://wedz.adaptable.app/api/upload/666bf6ccbcaef4c07646ab0a
  *         couple:
