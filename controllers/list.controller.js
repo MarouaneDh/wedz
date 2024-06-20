@@ -77,8 +77,8 @@ const getOneList = async (req, res) => {
             }
         }
 
-        const numberOfItems = 0
-        const numberOfItemsBought = 0
+        let numberOfItems = 0
+        let numberOfItemsBought = 0
 
         result.list.map((el) => numberOfItems = numberOfItems + el.numberOfItems)
         result.list.map((el) => numberOfItemsBought = numberOfItemsBought + el.numberOfItemsBought)
