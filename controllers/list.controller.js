@@ -50,10 +50,8 @@ const getAllLists = async (req, res) => {
         const globalPercentage = Math.round(globalRatio * 100);
 
         res.send({
-            response: {
-                ...listsWithStats,
-                globalstats: globalPercentage
-            },
+            response: listsWithStats,
+            globalstats: globalPercentage,
             message: "Got all lists with success",
         });
     } catch (error) {
