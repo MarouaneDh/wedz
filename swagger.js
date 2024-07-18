@@ -27,7 +27,7 @@ const options = {
         ],
         servers: [
             {
-                url: 'https://wedz.adaptable.app',
+                url: 'https://wedzing.adaptable.app',
             },
         ],
     },
