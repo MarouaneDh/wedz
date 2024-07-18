@@ -15,7 +15,7 @@ const uploadImage = async (req, res) => {
         await image.save();
 
         // Construct the image URL
-        const imageUrl = `https://wedz.adaptable.app/api/upload/${image._id}`;
+        const imageUrl = `https://wedzing.adaptable.app/api/upload/${image._id}`;
 
         // Update the specific list item with the image URL
         if (listId && itemId) {
