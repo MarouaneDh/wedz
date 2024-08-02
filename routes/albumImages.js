@@ -6,7 +6,7 @@ const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-const { uploadImage, getImage } = require("../controllers/album.controller");
+const { uploadImage, getImage, getAllImages } = require("../controllers/album.controller");
 
 //POST
 //uploading image
@@ -14,5 +14,7 @@ const { uploadImage, getImage } = require("../controllers/album.controller");
 router.post("/", upload.single('file'), uploadImage);
 
 router.get('/:id', getImage)
+
+router.get('/', getAllImages)
 
 module.exports = router;
